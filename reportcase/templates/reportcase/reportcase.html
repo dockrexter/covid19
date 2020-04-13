@@ -2,5 +2,171 @@
 {% load static %}
 
 {% block content %}
+<div class="container">
+    <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+
+        <!--      Wizard container        -->
+                <div class="wizard-container">
+
+            <div class="card wizard-card" data-color="green" id="wizardProfile">
+                <form action="" method="">
+            <!--        You can switch ' data-color="orange" '  with one of the next bright colors: "blue", "green", "orange", "red"          -->
+
+                    <div class="wizard-header">
+                        <h3>
+                           <b>Report</b>Case  <br>
+                           <small>This information will keep us updated about you.</small>
+                        </h3>
+                    </div>
+
+                    <div class="wizard-navigation">
+                        <ul>
+                            <li><a href="#about" data-toggle="tab">About</a></li>
+
+                            <li><a href="#address" data-toggle="tab">Address</a></li>
+                        </ul>
+
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane" id="about">
+                          <div class="row">
+                              <h4 class="info-text"> Let's start with the basic information</h4>
+                              
+                              <div class="col-sm-10 col-sm-offset-1">
+                                <div class="form-group">
+                                    <label style="font-size: medium;">Your Name:  <small>(required)</small></label>
+                                    <input name="firstname" type="text" class="form-control" placeholder="Andrew...">
+                                  </div>
+                                  <div class="form-group">
+                                    <label style="font-size: medium;">Suspect Name: <small>(required)</small></label>
+                                    <input name="lastname" type="text" class="form-control" placeholder="Smith...">
+                                  </div>
+                              </div>
+                              <div class="col-sm-10 col-sm-offset-1">
+                                  <div class="form-group">
+                                    <label style="font-size: medium;">Email <small>(required)</small></label>
+                                      <input name="email" type="email" class="form-control" placeholder="andrew@creative-tim.com">
+                                  </div>
+                              </div>
+
+                              <div class="col-sm-10 col-sm-offset-1">
+                                <div class="form-group">
+                                    <label style="font-size: medium;">Phone# <small>(required)</small></label>
+                                    <input name="phone" type="number" class="form-control" placeholder="Mobile Number">
+                                </div>
+                            </div>
+
+
+
+
+
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="address">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h4 class="info-text"> Are you living in a nice area? </h4>
+                                </div>
+                                <div class="col-sm-7 col-sm-offset-1">
+                                     <div class="form-group">
+                                        <label style="font-size: medium;">Street Name</label>
+                                        <input type="text" class="form-control" placeholder="5h Avenue">
+                                      </div>
+                                </div>
+                                <div class="col-sm-3">
+                                     <div class="form-group">
+                                        <label style="font-size: medium;">Street Number</label>
+                                        <input type="text" class="form-control" placeholder="242">
+                                      </div>
+                                </div>
+                                <div class="col-sm-5 col-sm-offset-1">
+                                     <div class="form-group">
+                                        <label style="font-size: medium;">>City</label>
+                                        <input type="text" class="form-control" placeholder="New York...">
+                                      </div>
+                                </div>
+                                <div class="col-sm-5">
+                                     <div class="form-group">
+                                        <label style="font-size: medium;">Country</label><br>
+                                         <select name="country" class="form-control">
+                                            <option value="Afghanistan"> SieraLeone </option>
+                                                                                  </select>
+                                      </div>
+                                </div>
+                                <div class="col-sm-5">
+                                
+                                <button type="button" style="margin-left:40%;" onclick="showPosition();" class="btn btn-success">Location on Maps</button>
+                                </div>
+                                <div id="embedMap" style="width: 400px; height: 250px; margin-left:26%">
+                                    <!--Google map will be embedded here-->
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wizard-footer height-wizard">
+                        <div class="pull-right">
+                            <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' value='Next' />
+                            <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' value='Finish' />
+
+                        </div>
+     
+
+                        <div class="pull-left">
+                            <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Previous' />
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
+                </form>
+            </div>
+        </div> <!-- wizard container -->
+    </div>
+    </div><!-- end row -->
+</div> <!--  big container -->
+
+<script type="text/javascript">
+    function showPosition(){
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(showMap, showError);
+        } else{
+            alert("Sorry, your browser does not support HTML5 geolocation.");
+        }
+    }
+     
+    // Define callback function for successful attempt
+    function showMap(position){
+        // Get location data
+        lat = position.coords.latitude;
+        long = position.coords.longitude;
+        console.log(lat);
+        var latlong = new google.maps.LatLng(lat, long);
+        
+        var myOptions = {
+            center: latlong,
+            zoom: 16,
+            mapTypeControl: true,
+            navigationControlOptions: {style:google.maps.NavigationControlStyle.SMALL}
+        }
+        
+        var map = new google.maps.Map(document.getElementById("embedMap"), myOptions);
+        var marker = new google.maps.Marker({position:latlong, map:map, title:"You are here!"});
+    }
+     
+    // Define callback function for failed attempt
+    function showError(error){
+        if(error.code == 1){
+            result.innerHTML = "You've decided not to share your position, but it's OK. We won't ask you again.";
+        } else if(error.code == 2){
+            result.innerHTML = "The network is down or the positioning service can't be reached.";
+        } else if(error.code == 3){
+            result.innerHTML = "The attempt timed out before it could get the location data.";
+        } else{
+            result.innerHTML = "Geolocation failed due to unknown error.";
+        }
+    }
+    </script>
 
 {% endblock %}
