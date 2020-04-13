@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('', include('home.urls')),
     path('blog', include('home.urls')),
+    path('reportcase', include('reportcase.urls')),
 ]
