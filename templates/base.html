@@ -6,12 +6,17 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <title>Welcome to Sierra Leone COVID-19 Case Tracking and Reporting Platform</title>
-
+  
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'css/gsdk-bootstrap-wizard.css'%}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'css/bootstrap.min.css'%}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'css/demo.css'%}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  
+  
 </head>
 <body>
   <nav class=" green darken-3" role="navigation">
@@ -22,14 +27,17 @@
         <li><a href="#">Home</a></li>
         <li><a href="#">Case Updates</a></li>
         <li><a href="#">Report Cases</a></li>
+        <li><a href="#">Request Test</a></li>
         <li><a href="#">Health Tips</a></li>
         <li><a href="#">Blog Posts</a></li>
+
       </ul>
 
       <ul id="nav-mobile" class="sidenav">
         <li><a href="#">Home</a></li>
         <li><a href="#">Case Updates</a></li>
         <li><a href="#">Report Cases</a></li>
+        <li><a href="#">Request Test</a></li>
         <li><a href="#">Health Tips</a></li>
         <li><a href="#">Blog Posts</a></li>
       </ul>
@@ -82,6 +90,15 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
   <!--  Scripts-->
+
+  <script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+  <script src="{% static 'js/jquery-1.10.2.js' %}"></script>
+  <script src="{% static 'js/jquery.validate.min.js' %}"></script>
+  <script src="{% static 'js/jquery.bootstrap.wizard.js' %}"></script>
+  <script src="{% static 'js/gsdk-bootstrap-wizard.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
   
   </body>
 </html>
