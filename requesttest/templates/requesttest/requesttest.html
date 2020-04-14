@@ -11,7 +11,7 @@
                 <div class="wizard-container">
 
             <div class="card wizard-card" data-color="blue" id="wizardProfile">
-                <form action="" method="POST">
+                <form action="" method="POST">{% csrf_token %}
             <!--        You can switch ' data-color="orange" '  with one of the next bright colors: "blue", "green", "orange", "red"          -->
 
                     <div class="wizard-header">
@@ -106,6 +106,11 @@
                                 <div id="embedMap" style="width: 400px; height: 250px; margin-left:26%">
                                     <!--Google map will be embedded here-->
                                 </div>
+                                <div class="form-group">
+                                    <input id="lat" name="lat" value="" type="hidden">
+                                    <input id="long" name="long" vlaue="" type="hidden">
+                    
+                  </div>              
 
 
                             </div>
@@ -114,7 +119,7 @@
                     <div class="wizard-footer height-wizard">
                         <div class="pull-right">
                             <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' value='Next' />
-                            <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' value='Finish' />
+                            <input type='submit' class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' value='Finish' />
 
                         </div>
      
@@ -147,7 +152,8 @@
         // Get location data
         lat = position.coords.latitude;
         long = position.coords.longitude;
-        console.log(lat);
+        document.getElementById("#lat").value=lat;
+        document.getElementById("#long").value=long;
         var latlong = new google.maps.LatLng(lat, long);
         
         var myOptions = {
