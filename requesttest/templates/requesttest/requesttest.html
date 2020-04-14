@@ -11,12 +11,10 @@
                 <div class="wizard-container">
 
             <div class="card wizard-card" data-color="blue" id="wizardProfile">
-                <form action="" method="POST">
-            <!--        You can switch ' data-color="orange" '  with one of the next bright colors: "blue", "green", "orange", "red"          -->
-
+                <form action="" method="POST">{% csrf_token %}
                     <div class="wizard-header">
                         <h3>
-                           <b>Request</b>Test  <br>
+                           <b>Request</b>Test<br>
                            <small>This information will keep us updated about you.</small>
                         </h3>
                     </div>
@@ -93,6 +91,7 @@
                                 </div>
                                 <div class="col-sm-5">
                                      <div class="form-group">
+                                        {% csrf_token %}
                                         <label style="font-size: medium;">Country</label><br>
                                          <select name="country" class="form-control">
                                             <option value="sieraleone"> SieraLeone </option>
@@ -114,7 +113,7 @@
                     <div class="wizard-footer height-wizard">
                         <div class="pull-right">
                             <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' value='Next' />
-                            <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' value='Finish' />
+                            <input type='submit' class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' value='Finish' />
 
                         </div>
      
