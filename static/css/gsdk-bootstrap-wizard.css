@@ -273,11 +273,39 @@ h1 .subtitle {
 .wizard-card[data-color="azzure"] .picture:hover {
   border-color: #2CA8FF;
 }
+.wizard-card[data-color="azzure"] .moving-tab {
+  position: absolute;
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  -webkit-font-smoothing: subpixel-antialiased;
+  background-color: #2CA8FF;
+  top: 0px;
+  left: 0px;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-weight: 500;
+}
 .wizard-card[data-color="blue"] .choice:hover .icon, .wizard-card[data-color="blue"] .choice.active .icon {
   border-color: #3472F7;
 }
 .wizard-card[data-color="blue"] .picture:hover {
   border-color: #3472F7;
+}
+.wizard-card[data-color="blue"] .moving-tab {
+  position:absolute;
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  -webkit-font-smoothing: subpixel-antialiased;
+  background-color: #3472F7;
+  top: 0px;
+  left: 0px;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-weight: 500;
 }
 .wizard-card[data-color="orange"] .choice:hover .icon, .wizard-card[data-color="orange"] .choice.active .icon {
   border-color: #05AE0E;

@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'home',
     'blog',
     'reportcase',
+    'requesttest',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -25,4 +25,5 @@ urlpatterns = [
     path('', include('home.urls')),
     path('blog', include('home.urls')),
     path('reportcase', include('reportcase.urls')),
-]
+    path('requesttest', include('requesttest.urls')),
+   ]
