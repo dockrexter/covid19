@@ -5,4 +5,6 @@ from .models import Case
 def index(request):
     if request.method=='GET':
         sum_active=Case.objects.aggregate(Sum('active'))
-        return render(request,"caseseupdates/case.html",{'sum':sum_active['active__sum']})
+        recovered=Case.objects.aggregate(Sum('recovered'))
+     
+        return render(request,"caseseupdates/case.html",{'total_active':sum_active['active__sum'],'total_recovered':recovered['recovered__sum']})
