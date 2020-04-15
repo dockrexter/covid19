@@ -1,7 +1,8 @@
-from django.views import generic
-from .models import Case
+from django.shortcuts import render,redirect
 from django.db.models import Sum
-class CaseList(generic.ListView):
-    template_name='caseseupdates/caseupdate.html'
-
-
+from .models import Case
+# Create your views here.
+def index(request):
+    if request.method=='GET':
+        sum_active=Case.objects.aggregate(Sum('active'))
+        return render(request,"caseseupdates/case.html",{'sum':sum_active['active__sum']})

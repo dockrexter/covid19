@@ -26,5 +26,5 @@ urlpatterns = [
     path('blog', include('blog.urls')),
     path('reportcase', include('reportcase.urls')),
     path('requesttest', include('requesttest.urls')),
-        path('caseseupdates', include('caseseupdates.urls')),
+    path('caseupdate', include('caseseupdates.urls')),
    ]
