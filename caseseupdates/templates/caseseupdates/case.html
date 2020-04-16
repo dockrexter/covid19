@@ -7,12 +7,52 @@
     <h1>
     Covid19 Cases in Siera Leone
     </h1>
-    <div style="font-weight:700px;columns: #696969;font-size:54px;">
-        <span style="color:#aaa">{{total_active}}</span>
-        <span style="color:#aaa">{{total_recovered}}</span>
-    </div>
-    
-    </div>
+    <br><br>
+    <div class="container-fluid">
+    <div class="row " style="justify-content: center;">
+        <div class="col-lg-2">
+    <div class="card" style="width: 20rem;border-radius:20px;">
+        <div class="card-body">
+          <h5 class="card-title"style="margin:auto;font-size:22px">Total Active</h5>
+          <p class="card-text" style="font-size:50px;"><span style="color:#41BDE4;">{{total_active}}</span>
+            </p></div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="card" style="width: 20rem;border-radius:20px;">
+            <div class="card-body">
+              <h5 class="card-title"style="margin:auto;font-size:22px">Total Recovered</h5>
+              <p class="card-text" style="font-size:50px;"><span style="color:#46BB0B;">{{total_recovered}}</span>
+                </p></div>
+            </div>
+          </div>
+                  <div class="col-lg-2">
+    <div class="card" style="width: 20rem;border-radius:20px;">
+        <div class="card-body">
+          <h5 class="card-title"style="margin:auto;font-size:22px">Total Confirmed</h5>
+          <p class="card-text" style="font-size:50px;"><span style="color:orange;">{{total_confirmed}}</span>
+            </p></div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="card" style="width: 20rem;border-radius:20px;">
+            <div class="card-body">
+              <h5 class="card-title"style="margin:auto;font-size:22px">Quarantined</h5>
+              <p class="card-text" style="font-size:50px;"><span style="color:orange;">{{total_quarantined}}</span>
+                </p></div>
+            </div>
+          </div>
+      <div class="col-lg-2">
 
+      <div class="card" style="width: 20rem;border-radius:20px;">
+        <div class="card-body">
+          <h5 class="card-title"style="margin:auto;font-size:22px">Total Deaths</h5>
+          <p class="card-text" style="font-size:50px;"><span style="color:red">{{total_deaths}}</span>
+    
+</p></div>            
+        </div>
+      </div>
+      </div>
+    </div></div>
 
 {% endblock %}

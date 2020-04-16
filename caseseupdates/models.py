@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 class Case(models.Model):
     confirmed=models.IntegerField(blank=False,null=False)
     active=models.IntegerField(blank=False,null=False)
+    quarantined=models.IntegerField(blank=False,null=False)
     recovered=models.IntegerField(blank=False,null=False)
     deaths=models.IntegerField(blank=False,null=False)
     author=models.ForeignKey(User,on_delete=models.CASCADE)

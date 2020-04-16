@@ -18,7 +18,8 @@ from django.contrib import admin
 from django.urls import path,include
 from django.contrib.auth import logout
 from django.urls import path
-
+from django.conf import settings
+from django.views.static import serve
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -27,4 +28,11 @@ urlpatterns = [
     path('reportcase', include('reportcase.urls')),
     path('requesttest', include('requesttest.urls')),
     path('caseupdate', include('caseseupdates.urls')),
+    path('healthtips',include('healthtips.urls')),
    ]
+if settings.DEBUG:
+     urlpatterns += [
+         url(r'^media/(?P<path>.*)$', serve, {
+             'document_root': settings.MEDIA_ROOT,
+         }),
+     ]
