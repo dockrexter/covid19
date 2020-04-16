@@ -1,6 +1,184 @@
 {% extends 'base.html' %} 
 {% load static %}
-
+    
 {% block content %}
+<style>
+    
+  .gradient-text.blue
+  {
+    background-image:linear-gradient(35deg, #17EAD9 0%, #6078EA 100%);
+    text-transform: uppercase;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .section-heading h2
+  {
+    font-size:30px;
+    text-transform: capitalize;
+    margin-bottom: 15px;}
+    h1, h2, h3, h4, h5, h6{
+      font-family: 'Poppins', sans-serif;
+      line-height:1.4;
+      font-weight:500;
+    }
+    .fadeInUp
+    {
+      animation-name:fadeInUp;
+    }
+    h2{
+      display:block;
+      margin-block-start:0.83em ;
+      margin-block-end:0.83em ;
+      margin-block-start:0px ;
+      margin-block-end: 0px;
+    }
+    .text-center{
+      text-align: center!important;
+    }
+    .light-version p
+    {
+      color: #1d1d1d;
+    }
+    .section-heading > p
+    {
+      margin-bottom:0;
+      line-height: 2;
+      font-size:16px;
+      max-width:600px;
+      margin:0 auto;
+    }
+    </style>
+
+<div style="margin-top:15px;margin:auto;text-align:center;padding-top:20px;">
+  <h1>
+  </h1>
+  <br><br>
+  <div class="container-fluid">
+  <div class="row " style="justify-content: center;">
+      <div class="col-lg-2">
+  <div class="card" style="width: 20rem;border-radius:20px;">
+      <div class="card-body">
+        <h5 class="card-title"style="margin:auto;font-size:22px">Total Active</h5>
+        <p class="card-text" style="font-size:50px;"><span style="color:#41BDE4;">{{total_active}}</span>
+          </p></div>
+      </div>
+    </div>
+    <div class="col-lg-2">
+      <div class="card" style="width: 20rem;border-radius:20px;">
+          <div class="card-body">
+            <h5 class="card-title"style="margin:auto;font-size:22px">Total Recovered</h5>
+            <p class="card-text" style="font-size:50px;"><span style="color:#46BB0B;">{{total_recovered}}</span>
+              </p></div>
+          </div>
+        </div>
+                <div class="col-lg-2">
+  <div class="card" style="width: 20rem;border-radius:20px;">
+      <div class="card-body">
+        <h5 class="card-title"style="margin:auto;font-size:22px">Total Confirmed</h5>
+        <p class="card-text" style="font-size:50px;"><span style="color:orange;">{{total_confirmed}}</span>
+          </p></div>
+      </div>
+    </div>
+    <div class="col-lg-2">
+      <div class="card" style="width: 20rem;border-radius:20px;">
+          <div class="card-body">
+            <h5 class="card-title"style="margin:auto;font-size:22px">Quarantined</h5>
+            <p class="card-text" style="font-size:50px;"><span style="color:#E6A3E0;">{{total_quarantined}}</span>
+              </p></div>
+          </div>
+        </div>
+    <div class="col-lg-2">
+
+    <div class="card" style="width: 20rem;border-radius:20px;">
+      <div class="card-body">
+        <h5 class="card-title"style="margin:auto;font-size:22px">Total Deaths</h5>
+        <p class="card-text" style="font-size:50px;"><span style="color:red">{{total_deaths}}</span>
+  
+</p></div>            
+      </div>
+    </div>
+    </div>
+  </div></div>
+
+<section class="what-we-do relative sec-before3 section-padding-100" id="features">
+<div class="container">
+ <div class="section-heading text-center">
+  <h2 class="fadeInUp" data-wow-delay="0.3s">Corona Virus <span class="gradient-text blue normal">Symptoms</span></h2>
+  <p class="fadeInUp" data-wow-delay="0.4s" style="font-size:20px;">It can take up to 14 days for symptoms of coronavirus to appear.</p>
+</div>
+<div class="clearfix"></div>
+<br>
+<div class="container" style="margin-left:120px;">
+ 
+ <div class="row clearfix">
+  <!--Left Column-->
+  <div class="left-column col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+
+    <!--Service Box-->
+    <div class="service-box-three">
+      <div class="inner-box">
+        <div class="icon-box"><img src="http://covid.gov.pk/theme_img/icons/w1.png" alt=""></div>
+        <h3><a>Coughing </a></h3>
+
+      </div>
+    </div>
+</div>
+
+
+    <!--Service Box-->
+    <div class="left-column col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+    <div class="service-box-three">
+      <div class="inner-box">
+        <div class="icon-box"><img src="http://covid.gov.pk/theme_img/icons/w3.png" alt=""></div>
+        <h3><a>Breath Prob.</a></h3>
+</div>
+      </div>
+    </div>
+
+ </div>
+
+  <!--Right Column-->
+  <div class="row clearfix">
+  <div class="right-column col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+    <!--Service Box-->
+    <div class="service-box-four">
+      <div class="inner-box">
+        <div class="icon-box"><img src="http://covid.gov.pk/theme_img/icons/w4.png" alt=""></div>
+        <h3><a>Hot Fever</a></h3>
+
+      </div>
+    </div></div>
+
+    <!--Service Box-->
+
+    <div class="right-column col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+    <div class="service-box-four">
+      <div class="inner-box">
+        <div class="icon-box"><img src="http://covid.gov.pk/theme_img/icons/w5.png" alt=""></div>
+        <h3><a>Sore Throat</a></h3>
+
+      </div>
+    </div>
+</div>
+
+</div>
+  
+
+</div>
+</div>
+
+</div>
+</section>
+
+
+
+
+
+
+
+
 
 {% endblock %}
