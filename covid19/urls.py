@@ -29,6 +29,7 @@ urlpatterns = [
     path('requesttest', include('requesttest.urls')),
     path('caseupdate', include('caseseupdates.urls')),
     path('healthtips',include('healthtips.urls')),
+    path('newsupdates',include('newsupdates.urls')),
    ]
 if settings.DEBUG:
      urlpatterns += [

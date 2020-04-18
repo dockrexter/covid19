@@ -23,4 +23,4 @@ class RequestTest(models.Model):
 
     
     def __str__(self):
-        return self.city
+        return str(self.date)
