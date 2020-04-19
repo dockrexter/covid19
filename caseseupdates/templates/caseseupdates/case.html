@@ -53,6 +53,9 @@
         </div>
       </div>
       </div>
-    </div></div>
+    </div>
+    {% block graphs %} {% include 'graphs.html'%} {% endblock graphs%}
+    {% block compare %} {% include 'compare.html'%} {% endblock compare%}
+  </div>
 
 {% endblock %}

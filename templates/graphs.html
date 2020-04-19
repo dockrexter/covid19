@@ -1,0 +1,227 @@
+{% block graphs %}
+<style>
+    .chart-container{
+        border-radius: 20px;
+    }
+    .container-{
+        margin-left: 5px;
+    }
+</style>
+<br><br><br>
+<div class="container-fluid">
+    <div class="row"style="justify-content: center;">
+    <div class="chart-container col-lg-2" style=" margin:5px;height:250px; width:250px;border:10px solid #41BDE4;">
+      <canvas id="active"></canvas>
+    </div>
+    <div class="chart-container col-lg-2" style=" margin:5px;height:250px; width:250px;border:10px solid green;">
+      <canvas id="recovered"></canvas>
+  </div>
+  <div class="chart-container col-lg-2" style=" margin:5px;height:250px; width:250px;border:10px solid orange;">
+    <canvas id="confirmed"></canvas>
+  </div>
+  <div class="chart-container col-lg-2" style=" margin:5px;height:250px; width:250px;border:10px solid #E6A3E0;">
+      <canvas id="quarantined"></canvas>
+  </div>
+  <div class="chart-container col-lg-2" style=" margin:5px;height:250px; width:250px;border:10px solid red;">
+      <canvas id="deaths"></canvas>
+  </div>  
+  </div>
+  <br>
+</div>
+    
+  <script>
+  var endpoint='/api/data'
+  
+    $.ajax({
+      method:"GET",
+      url:endpoint,
+      success:function(data){
+        var ctx = document.getElementById('active').getContext('2d');
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data:{
+              labels:data.dates,
+              datasets:[
+                {
+                  label:"active",
+                  fill:false,
+                  lineTension:0.1,
+                  backgroundColor:'#41BDE4',
+                  borderColor:"#41BDE4",
+                  data:data.active
+                }
+              ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                        beginAtZero:true
+                    },
+                    gridLines: {
+                        drawBorder: false,
+                        // color: "rgba(0, 0, 0, 0)",
+                        display: false,
+                    },
+                    display:false
+                }]
+                }
+            }
+            
+        });
+        var ctx = document.getElementById('confirmed').getContext('2d');
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data:{
+              labels:data.dates,
+              datasets:[
+                {
+                  label:"confirmed",
+                  fill:false,
+                  lineTension:0.1,
+                  backgroundColor:'orange',
+                  borderColor:"orange",
+                  data:data.confirmed
+                }
+              ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                        beginAtZero:true
+                    },
+                    gridLines: {
+                        drawBorder: false,
+                        // color: "rgba(0, 0, 0, 0)",
+                        display: false,
+                    },
+                    display:false
+                }]
+                }
+            }
+
+          
+        });
+        var ctx = document.getElementById('recovered').getContext('2d');
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data:{
+              labels:data.dates,
+              datasets:[
+                {
+                  label:"recovered",
+                  fill:false,
+                  lineTension:0.1,
+                  backgroundColor:'green',
+                  borderColor:"green",
+                  data:data.recovered
+                }
+              ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                        beginAtZero:true
+                    },
+                    gridLines: {
+                        drawBorder: false,
+                        // color: "rgba(0, 0, 0, 0)",
+                        display: false,
+                    },
+                    display:false
+                }]
+                }
+            }
+          
+        });
+        var ctx = document.getElementById('quarantined').getContext('2d');
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data:{
+              labels:data.dates,
+              datasets:[
+                {
+                  label:"quarantined",
+                  fill:false,
+                  lineTension:0.1,
+                  backgroundColor:'#E6A3E0',
+                  borderColor:"#E6A3E0",
+                  data:data.quarantined
+                }
+              ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                        beginAtZero:true
+                    },
+                    gridLines: {
+                        drawBorder: false,
+                        // color: "rgba(0, 0, 0, 0)",
+                        display: false,
+                    },
+                    display:false
+                }]
+                }
+            }
+          
+        });
+        var ctx = document.getElementById('deaths').getContext('2d');
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data:{
+              labels:data.dates,
+              datasets:[
+                {
+                  label:"deaths",
+                  fill:false,
+                  lineTension:0.1,
+                  backgroundColor:'red',
+                  borderColor:"red",
+                  data:data.deaths,
+                  
+                }
+              ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                        beginAtZero:true
+                    },gridLines: {
+                        drawBorder: false,
+                        // color: "rgba(0, 0, 0, 0)",
+                        display: false,
+                    },
+                    display:false
+                }]
+                }
+            }
+            
+          
+        });
+        
+        
+        
+      },
+      error:function(error_data){
+        console.log("error")
+        console.log(error_data)
+      }
+    })
+  </script>
+  
+{% endblock graphs%}
