@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'healthtips',
     'requesttest',
     'caseseupdates',
+    'newsupdates',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
