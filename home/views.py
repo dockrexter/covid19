@@ -3,6 +3,11 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.db.models import Sum
 from caseseupdates.models import Case
 from django.http import JsonResponse
+from blog.models import Post
+from healthtips.models import Tips
+from newsupdates.models import News
+
+
 
 # Create your views here.
 def index(request):
@@ -12,8 +17,11 @@ def index(request):
         deaths=Case.objects.aggregate(Sum('deaths'))
         confirmed=Case.objects.aggregate(Sum('confirmed'))
         quarantined=Case.objects.aggregate(Sum('quarantined'))
-     
-        return render(request,"home/home.html",{'total_active':sum_active['active__sum'],'total_recovered':recovered['recovered__sum'],'total_deaths':deaths['deaths__sum'],'total_confirmed':confirmed['confirmed__sum'],'total_quarantined':quarantined['quarantined__sum']})
+        queryset1=(Post.objects.filter(status=1).order_by('-created_on'))
+        queryset2=(Tips.objects.filter(status=1).order_by('-created_on'))
+        queryset3=(News.objects.filter(status=1).order_by('-created_on'))
+
+        return render(request,"home/home.html",{'newspost':queryset3,'tipspost':queryset2,'blogpost':queryset1,'total_active':sum_active['active__sum'],'total_recovered':recovered['recovered__sum'],'total_deaths':deaths['deaths__sum'],'total_confirmed':confirmed['confirmed__sum'],'total_quarantined':quarantined['quarantined__sum']})
 
 def get_data(request):
     dates=Case.objects.values('created_on')
