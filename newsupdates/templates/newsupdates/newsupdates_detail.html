@@ -6,12 +6,12 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 mb-4 mt-3 left top">
-            <div class="card-body">
+            <div class="card-body mt-5">
                 <h1>{% block title %} {{object.title}} {% endblock title %}</h1>
                 <p class="text-muted">{{news.author}}|{{news.created_on}}</p>
-                <img src="{{tips.cover_image.url}}" class="img-responsive"style="width:100%;border:2px solid white;border-radius:20px">
+                <img src="{{news.cover_image.url}}" class="img-responsive"style="width:100%;border:2px solid white;border-radius:20px">
 <br>
-                <p class="card-text">{{tips.content}}</p>
+                <p class="card-text">{{news.content}}</p>
             </div>
         </div> 
         {% block sidebar %} {% include 'newsupdates/sidebar.html'%} {% endblock sidebar%}

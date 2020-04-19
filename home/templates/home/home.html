@@ -12,6 +12,14 @@
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
   }
+
+  .gradient-text.red
+  {
+    background-image:linear-gradient(35deg, rgb(9, 234, 223) 10%, red 70%);
+    text-transform: uppercase;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
   .section-heading h2
   {
     font-size:30px;
@@ -48,6 +56,39 @@
       max-width:600px;
       margin:0 auto;
     }
+
+
+    .container1{
+  margin-bottom: 10rem;
+}
+.card1 {
+  border-radius:.35rem !important;
+}
+.card1 img {
+  border-radius:.35rem !important;
+}
+.card-body1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  overflow: hidden;
+  background-color: #fff;
+  transition: all 1s;
+  border-radius:.35rem !important;
+}
+.card-text1 {
+  color: #2b0099 !important;
+}
+.card-body1.close {
+    top: 100%;
+    height: 5rem;
+  	margin-top: -5rem;
+  	border-bottom-left-radius:.35rem !important;
+  	border-bottom-right-radius:.35rem !important;
+  	opacity: .9;
+}
+
     </style>
 
 <div style="margin-top:15px;margin:auto;text-align:center;padding-top:20px;">
@@ -111,15 +152,15 @@
 <div class="container">
  <div class="section-heading text-center">
   <h2 class="fadeInUp" data-wow-delay="0.3s">Corona Virus <span class="gradient-text blue normal">Symptoms</span></h2>
-  <p class="fadeInUp" data-wow-delay="0.4s" style="font-size:20px;">It can take up to 14 days for symptoms of coronavirus to appear.</p>
+  <p class="fadeInUp" data-wow-delay="0.4s" style="font-size:20px;text-align: left;">It can take up to 14 days for symptoms of coronavirus to appear.</p>
 </div>
 <div class="clearfix"></div>
 <br>
-<div class="container" style="margin-left:120px;">
+<div class="container" >
  
  <div class="row clearfix">
   <!--Left Column-->
-  <div class="left-column col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+  <div class="left-column col-lg-3 col-md-3 col-sm-3 col-xs-6 m-auto">
 
     <!--Service Box-->
     <div class="service-box-three">
@@ -133,7 +174,7 @@
 
 
     <!--Service Box-->
-    <div class="left-column col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <div class="left-column col-lg-3 col-md-3 col-sm-3 col-xs-6 m-auto">
 
     <div class="service-box-three">
       <div class="inner-box">
@@ -147,7 +188,7 @@
 
   <!--Right Column-->
   <div class="row clearfix">
-  <div class="right-column col-lg-6 col-md-6 col-sm-6 col-xs-12">
+  <div class="right-column col-lg-3 col-md-3 col-sm-3 col-xs-6 m-auto">
 
     <!--Service Box-->
     <div class="service-box-four">
@@ -160,7 +201,7 @@
 
     <!--Service Box-->
 
-    <div class="right-column col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <div class="right-column col-lg-3 col-md-3 col-sm-3 col-xs-6 m-auto">
 
     <div class="service-box-four">
       <div class="inner-box">
@@ -179,12 +220,156 @@
 
 </div>
 </section>
+<div class="container">
+  <br><br><br>
+  <h1 style="text-align:center;font-family: Georgia, 'Times New Roman', Times, serif;border-bottom:2px solid red;">BLOGS</h1>
+
+  <div class="row">
+          <div class="col-md mt-3 left">
+              {% for post in blogpost %}
+              {%if forloop.counter <= 3 %}
+              <div class="card mb-4">
+                  <div class="card-body">
+                      <h2 class="card-title">{{post.title}}</h2>
+                      <p class="card-text text-muted h6">{{post.author}}|{{post.created_on}}</p>
+                      <p class="card-text">{{post.content|slice:":200"}}</p>
+                      <a href="{% url 'PostDetail' post.slug %}" class="btn btn-danger">Read More&rarr;</a>
+                  </div>
+              </div>
+              {% endif %}
+              {% endfor %}
+          </div>
+        </div>
+  </div>
+  
+
+
+
+ <div class="container1">
+<h1 style="text-align:center;font-family: Georgia, 'Times New Roman', Times, serif;border-bottom:2px solid red;">HEALTH TIPS</h1>
+  <div class="row my-5 d-flex justify-content-center">
+    
+    {% for tips in tipspost %}
+    {%if forloop.counter <= 3 %}
+             
+    <div class="col-md-3">
+      
+      <div class="card1" id="card2">
+
+        <!-- Card image -->
+        <img class="img-responsive" src="{{tips.cover_image.url}}" alt="Card image cap">
+
+        <!-- Card content -->
+        <div class="card-body1 close text-center" id="cardbody2">
+
+          <!-- Title -->
+          <h4 class="card-title1 font-weight-bold pt-1 pb-2"><a>{{tips.title}}</a></h4>
+          <!-- Text -->
+          <p class="card-text1 my-5">{{tips.content|slice:":150"}}</p>
+          <!-- Button -->
+          <a href="{% url 'TipsDetail' tips.slug %}" class="btn btn-primary btn-rounded blue-gradient">Wanna Read More? <i class="fas fa-palette ml-2"></i></a>
+
+        </div>
+
+      </div>
+      <!-- Card -->
+
+    </div>
+{% endif %}
+    {% endfor %}
+ 
+
+  </div>
+
+</div>
+
+
+
+<section class="what-we-do relative sec-before3 section-padding-100" id="features">
+  <div class="container">
+   <div class="section-heading text-center">
+    <h2 class="fadeInUp" style="border-bottom:2px solid red ;" data-wow-delay="0.3s"><span class="gradient-text blue normal">Precautions</span></h2>
+  <div class="row">
+<div class="col md-4">
+  <h3 style="text-align: left;"><i class="far fa-check-circle gradient-text red"></i> <span class="gradient-text red"> Wash Your Hands For 20sec</span></h3>
+<p style="text-align: left;color:grey"><small>Wash hands often with soap and water for at least 20 seconds.</small></p>
+
+<h3 style="text-align: left;"><i class="far fa-check-circle gradient-text red"></i> <span class="gradient-text red"> Cover Nose & Mouth When Sneezing</h3>
+<p style="text-align: left;color:grey;"><small>Cover coughs and sneezes with tissues.</small></p>
+
+
+
+
+<h3 style="text-align: left;"><i class="far fa-check-circle gradient-text red"></i><span class="gradient-text red">  Use Sanitizers</h3>
+<p style="text-align: left;color:grey"><small>Use hand sanitizer if soap and water are not available.</small></p>
+
+
+
+
+<h3 style="text-align: left;"><i class="far fa-check-circle gradient-text red"></i><span class="gradient-text red">   Social Distancing</h3>
+<p style="text-align:left;color:grey"><small>As an individual, you can lower your risk of infection by reducing your rate of contact with other people. Avoiding public spaces and unnecessary social gatherings, especially events with large numbers of people or crowds, will lower the chance that you will be exposed to the coronavirus as well as to other infectious diseases like flu.</small></p>
+
+
+<h3 style="text-align: left;"><i class="far fa-check-circle gradient-text red"></i><span class="gradient-text red">   avoid contact with sick people</h3>
+  <p style="text-align: left;color:grey"><small>Avoid close contact with anyone showing symptoms of respiratory illness.</small></p>
+  
+  
+  
 
 
 
 
 
+</div>
+
+  </div> 
+  
+  </div></div></section>  
 
 
+<div class="container1">
+  <h1 style="text-align:center;font-family: Georgia, 'Times New Roman', Times, serif;border-bottom:2px solid red;">LATEST NEWS</h1>
+    <div class="row my-5 d-flex justify-content-center">
+      
+      {% for news in newspost %}
+        {%if forloop.counter <= 3 %}
+               
+      <div class="col-md-3">
+        
+        <div class="card1" id="card2">
+  
+          <!-- Card image -->
+          <img class="img-responsive" src="{{news.cover_image.url}}" alt="Card image cap">
+  
+          <!-- Card content -->
+          <div class="card-body1 close text-center" id="cardbody2">
+  
+            <!-- Title -->
+            <h4 class="card-title1 font-weight-bold pt-1 pb-2"><a>{{news.title}}</a></h4>
+            <!-- Text -->
+            <p class="card-text1 my-5">{{news.content|slice:":150"}}</p>
+            <!-- Button -->
+            <a href="{% url 'NewsDetail' news.slug %}" class="btn btn-primary btn-rounded blue-gradient">Wanna Read More? <i class="fas fa-palette ml-2"></i></a>
+  
+          </div>
+  
+        </div>
+        <!-- Card -->
+  
+      </div>
+  {% endif %}
+      {% endfor %}
+   
+  
+    </div>
+  
+  </div>
+  
+
+<script>
+  $('[id=card2]').click(function(e) {
+  $(this).find('#cardbody2').toggleClass('close');
+});
+</script>
 
 {% endblock %}

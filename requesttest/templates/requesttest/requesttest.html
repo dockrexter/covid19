@@ -102,9 +102,10 @@
                                 </div>
                                 <div class="col-sm-5">
                                 
-                                <button type="button" style="margin-left:40%;" onclick="showPosition();" class="btn btn-success">Location on Maps</button>
+                                <button id="btn1" type="button" style="margin-left:40%;" onclick="showPosition();" class="btn btn-success">Location on Maps</button>
                                 </div>
-                                <div id="embedMap" style="width: 400px; height: 250px; margin-left:26%">
+                                <br>
+                                <div id="embedMap" style="width:80%; height: 250px; margin-left:26%" class="m-auto">
                                     <!--Google map will be embedded here-->
                                 </div>
                                 <div class="form-group">
@@ -180,6 +181,18 @@
             result.innerHTML = "Geolocation failed due to unknown error.";
         }
     }
+    </script>
+    <script>
+        $('#btn1').click(function()
+{
+    $('#btn1').hide();
+
+
+
+
+     
+        
+        });
     </script>
 
 {% endblock %}
